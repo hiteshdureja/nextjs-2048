@@ -69,7 +69,35 @@ npm start
 🖼️ Gameplay Screenshots
 
 ![Alt Text](./public/gameplay.png)
+---
+🧩 Initial Game Board
 
+![Alt Text](./public/gameplay.png)
+---
+➡️ Move Right
+
+![Alt Text](./public/right.png)
+---
+⬇️ Move Down
+
+![Alt Text](./public/down.png)
+---
+⬅️ Move Left
+
+![Alt Text](./public/left.png)
+---
+⬆️ Move Up
+
+![Alt Text](./public/up.png)
+---
+💀 Game Over Screen
+
+![Alt Text](./public/gameover.png)
+---
+🏆 Winning Screen
+
+![Alt Text](./public/win.png)
+---
 ## 🧠 Implementation Details
 
 ### 🏗️ Tech Stack
@@ -103,45 +131,3 @@ npm start
 | `canMoveBoard(board)` | Checks if any valid moves remain |
 | `hasWon(board)` | Returns `true` if a tile ≥ 2048 exists |
 
----
-
-## 🧰 Development Notes
-- **No SSR**: The main game component uses `dynamic(..., { ssr: false })` to prevent hydration mismatches caused by random tile generation.  
-- **Responsive grid:** Tile sizes automatically adjust to fit any board dimension.  
-- **Styling:** MUI’s `sx` prop for inline responsive design.  
-- **Restart logic:** resets board, score, and overlay state.
-
----
-
-## 🚀 Deployment (Vercel)
-
-1. Push the project to **GitHub** (`main` branch).  
-2. Go to [https://vercel.com](https://vercel.com).  
-3. Click **“Add New Project” → Import Git Repository**.  
-4. Select your repo → **Deploy**.  
-5. Vercel auto-detects **Next.js** and builds automatically.  
-
-Your live app will be available at:
-```
-https://nextjs-2048.vercel.app
-```
-
----
-
-## 🧑‍💻 Author
-**Your Name**  
-📧 [your.email@example.com](mailto:your.email@example.com)  
-💼 [LinkedIn / Portfolio link]
-
----
-
-## 🏁 License
-This project is licensed under the **MIT License** — feel free to modify and distribute.
-
----
-
-### 🌟 Example Screenshot (Optional)
-*(Add an image once deployed)*
-```
-![2048 Game Screenshot](./public/screenshot.png)
-```
