@@ -9,9 +9,14 @@ type BoardProps = {
   restart?: (size?: number) => void;
 };
 
-export default function Board({ board, youWin, gameOver, restart }: BoardProps) {
+export default function Board({
+  board,
+  youWin,
+  gameOver,
+  restart,
+}: BoardProps) {
   const size = board.length;
-  const boardWidth = 400; // total board width in px
+  const boardWidth = 400;
   const gap = 8;
   const tileSize = (boardWidth - (size + 1) * gap) / size;
 
@@ -27,7 +32,6 @@ export default function Board({ board, youWin, gameOver, restart }: BoardProps) 
         position: "relative",
       }}
     >
-      {/* Game grid */}
       <Box
         sx={{
           display: "grid",
@@ -47,7 +51,6 @@ export default function Board({ board, youWin, gameOver, restart }: BoardProps) 
           ))
         )}
 
-        {/* Overlay when game is won or over */}
         {(youWin || gameOver) && (
           <Box
             sx={{
@@ -55,8 +58,8 @@ export default function Board({ board, youWin, gameOver, restart }: BoardProps) 
               inset: 0,
               borderRadius: 2,
               backgroundColor: youWin
-                ? "rgba(0, 200, 0, 0.6)" // green overlay for win
-                : "rgba(255, 0, 0, 0.6)", // red overlay for game over
+                ? "rgba(0, 200, 0, 0.6)"
+                : "rgba(255, 0, 0, 0.6)",
               display: "flex",
               flexDirection: "column",
               justifyContent: "center",

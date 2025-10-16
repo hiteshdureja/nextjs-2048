@@ -1,5 +1,11 @@
-import { useCallback, useState } from 'react';
-import { createEmptyBoard, addRandomTile, moveBoard, canMoveBoard, hasWon } from '../utils/game';
+import { useCallback, useState } from "react";
+import {
+  createEmptyBoard,
+  addRandomTile,
+  moveBoard,
+  canMoveBoard,
+  hasWon,
+} from "../utils/game";
 
 export default function useGame(defaultSize = 4) {
   const init = (size: number) => {
@@ -14,7 +20,9 @@ export default function useGame(defaultSize = 4) {
   const [score, setScore] = useState<number>(0);
   const [youWin, setYouWin] = useState<boolean>(false);
   const [gameOver, setGameOver] = useState<boolean>(false);
-  const [stepHistory, setStepHistory] = useState<number[][][]>([init(defaultSize)]);
+  const [stepHistory, setStepHistory] = useState<number[][][]>([
+    init(defaultSize),
+  ]);
 
   const restart = useCallback((newSize = size) => {
     const b = init(newSize);
@@ -26,11 +34,10 @@ export default function useGame(defaultSize = 4) {
     setStepHistory([b]);
   }, []);
 
-  const move = useCallback((dir: 'up' | 'down' | 'left' | 'right') => {
+  const move = useCallback((dir: "up" | "down" | "left" | "right") => {
     setBoard((prev) => {
       const { board: next, moved, gained } = moveBoard(prev, dir);
       if (!moved) return prev;
-      // add random tile immutably
       const withTile = addRandomTile(next);
       setScore((s) => s + gained);
       setStepHistory((h) => [...h, withTile]);
@@ -52,6 +59,6 @@ export default function useGame(defaultSize = 4) {
     canMove,
     gameOver,
     youWin,
-    stepHistory
+    stepHistory,
   };
 }

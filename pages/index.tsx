@@ -1,6 +1,6 @@
-import dynamic from 'next/dynamic';
+import dynamic from "next/dynamic";
 
-const GamePage = dynamic(() => import('../components/GamePage'), {
+const GamePage = dynamic(() => import("../components/GamePage"), {
   ssr: false,
 });
 

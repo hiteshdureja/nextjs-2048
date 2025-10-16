@@ -1,8 +1,15 @@
-import React, { useEffect } from 'react';
-import { Container, Typography, Box, Paper, Button, TextField } from '@mui/material';
-import Board from '../components/Board';
-import Controls from '../components/Controls';
-import useGame from '../hooks/useGame';
+import React, { useEffect } from "react";
+import {
+  Container,
+  Typography,
+  Box,
+  Paper,
+  Button,
+  TextField,
+} from "@mui/material";
+import Board from "../components/Board";
+import Controls from "../components/Controls";
+import useGame from "../hooks/useGame";
 
 export default function Home() {
   const {
@@ -15,24 +22,28 @@ export default function Home() {
     canMove,
     gameOver,
     youWin,
-    stepHistory
   } = useGame(4);
 
   useEffect(() => {
     const onKey = (e: KeyboardEvent) => {
-      if (e.key === 'ArrowLeft') move('left');
-      if (e.key === 'ArrowRight') move('right');
-      if (e.key === 'ArrowUp') move('up');
-      if (e.key === 'ArrowDown') move('down');
+      if (e.key === "ArrowLeft") move("left");
+      if (e.key === "ArrowRight") move("right");
+      if (e.key === "ArrowUp") move("up");
+      if (e.key === "ArrowDown") move("down");
     };
-    window.addEventListener('keydown', onKey);
-    return () => window.removeEventListener('keydown', onKey);
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
   }, [move]);
 
   return (
     <Container maxWidth="sm" sx={{ py: 4 }}>
       <Paper elevation={3} sx={{ p: 2 }}>
-        <Box display="flex" justifyContent="space-between" alignItems="center" mb={2}>
+        <Box
+          display="flex"
+          justifyContent="space-between"
+          alignItems="center"
+          mb={2}
+        >
           <Typography variant="h5">2048 Game</Typography>
           <Box textAlign="right">
             <Typography variant="subtitle1">Score</Typography>
@@ -52,18 +63,29 @@ export default function Home() {
             }}
             size="small"
           />
-          <Button variant="contained" onClick={() => restart(size)}>Restart</Button>
+          <Button variant="contained" onClick={() => restart(size)}>
+            Restart
+          </Button>
         </Box>
 
-        <Board board={board} youWin={youWin} gameOver={gameOver} restart= {restart}/>
+        <Board
+          board={board}
+          youWin={youWin}
+          gameOver={gameOver}
+          restart={restart}
+        />
 
         <Box mt={2}>
           <Controls onMove={move} disabled={!canMove || gameOver || youWin} />
         </Box>
 
         <Box mt={2}>
-          {youWin && <Typography color="primary">You reached 2048! 🎉</Typography>}
-          {gameOver && <Typography color="error">Game Over - no moves left.</Typography>}
+          {youWin && (
+            <Typography color="primary">You reached 2048! 🎉</Typography>
+          )}
+          {gameOver && (
+            <Typography color="error">Game Over - no moves left.</Typography>
+          )}
         </Box>
       </Paper>
     </Container>
