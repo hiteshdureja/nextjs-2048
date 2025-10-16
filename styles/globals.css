@@ -1,0 +1,7 @@
+html, body, #__next {
+  height: 100%;
+}
+body {
+  background: #faf8ef;
+  font-family: "Roboto", sans-serif;
+}
