@@ -8,7 +8,7 @@ The goal is simple: combine tiles with the same number to reach **2048**.
 ## 🚀 Demo
 
 Live Demo (Vercel):  
-👉 [https://nextjs-2048.vercel.app/](#)
+👉 [https://nextjs-2048.vercel.app/](https://nextjs-2048.vercel.app/)
 
 ---
 
